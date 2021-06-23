@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,18 +18,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 15
-      - run: node update.js
-
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 15
           registry-url: https://registry.npmjs.org/
+      - run: node update.js
+      - run: cd Leaflet
       - run: yarn publish --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      
 
