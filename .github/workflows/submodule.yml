@@ -1,4 +1,5 @@
 name: Submodule Sync
+
 on:
   schedule:
     - cron: "* 15 * * *"
