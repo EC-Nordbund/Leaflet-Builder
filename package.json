@@ -4,5 +4,12 @@
   "scripts": {
     "build": "sh ./update.sh"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.12.9",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "js-sha3": "^0.8.0"
+  }
 }
