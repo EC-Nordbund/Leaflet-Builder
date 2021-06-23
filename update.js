@@ -3,8 +3,9 @@ const fs = require('fs')
 const pack = JSON.parse(fs.readFileSync('./Leaflet/package.json', 'utf8'))
 const version = fs.readFileSync('./.commithash', 'utf8')
 
-pack.version = pack.version + '-' + version.trim().slice(0, 9)
+pack.version = pack.version.split('.es6.')[0] + '.es6.' + version.trim().slice(0, 9)
 pack.name = '@ec-nordbund/leaflet'
+pack.sideEffects = false
 
 delete pack.files
 
