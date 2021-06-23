@@ -1,3 +1,4 @@
+rm -r ./Leaflet
 git clone https://github.com/Leaflet/Leaflet.git
 cd Leaflet
 git rev-parse --verify HEAD > ../.commithash

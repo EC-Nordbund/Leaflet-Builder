@@ -1,9 +1,9 @@
 const fs = require('fs')
 
 const pack = JSON.parse(fs.readFileSync('./Leaflet/package.json', 'utf8'))
-const version = fs.readFileSync('./.commithash', 'utf8')
+const version = fs.readFileSync('./.commithash')
 
-pack.version = pack.version.split('.es6.')[0] + '.es6.' + version.trim().slice(0, 9)
+pack.version = pack.version.split('-')[0] + '-build+' + version.toString().split('').filter(v => v !== '\u0000').join('').trim().slice(2, 12)
 pack.name = '@ec-nordbund/leaflet'
 pack.sideEffects = false
 
@@ -31,7 +31,10 @@ fs.writeFileSync('./Leaflet/dist/fix.js', fix)
 fs.writeFileSync('./Leaflet/dist/leaflet-src.js', file)
 fs.writeFileSync('./Leaflet/package.json', JSON.stringify(pack, null, 2))
 
-const readmePrepend = `> Copy of Leaflet wich not exposes window.L and is a module.\n\n`
+const readmePrepend = `> Copy of Leaflet wich not exposes window.L and is a module. Also you can require it in node (but not use it).\n
+> Version pattern: leafletversion-build+commitID if I missed a new version / commit just create a issue at https://github.com/EC-Nordbund/Leaflet-Builder \n
+> 
+\n\n`
 
 const readme = fs.readFileSync('./Leaflet/README.md', 'utf-8')
 fs.writeFileSync('./Leaflet/README.md', readmePrepend + readme)
