@@ -20,8 +20,7 @@ jobs:
           node-version: 15
           registry-url: https://registry.npmjs.org/
       - run: node update.js
-      - run: cd Leaflet
-      - run: yarn publish --non-interactive
+      - run: cd Leaflet && yarn publish --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       
