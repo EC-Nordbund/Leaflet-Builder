@@ -1,3 +1,9 @@
 [submodule "Leaflet"]
 	path = Leaflet
 	url = https://github.com/Leaflet/Leaflet.git
+[submodule "plugins/Leaflet.TimeDimension"]
+	path = plugins/Leaflet.TimeDimension
+	url = https://github.com/socib/Leaflet.TimeDimension.git
+[submodule "plugins/Leaflet.GestureHandling"]
+	path = plugins/Leaflet.GestureHandling
+	url = https://github.com/elmarquis/Leaflet.GestureHandling.git
