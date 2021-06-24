@@ -3,9 +3,9 @@ const fs = require('fs')
 const pack = JSON.parse(fs.readFileSync('./Leaflet/package.json', 'utf8'))
 const version = fs.readFileSync('./.git/modules/Leaflet/refs/heads/master', 'utf-8')
 
-pack.version = pack.version.split('-')[0] + '-build-' + version.toString().trim().slice(0, 12)
+pack.version = pack.version.split('-')[0] + '-build-' + version.toString().trim().slice(0, 8)
 pack.name = '@ec-nordbund/leaflet'
-pack.sideEffects = false
+pack.sideEffects = true
 pack.module = "dist/leaflet-src.js"
 
 delete pack.files
